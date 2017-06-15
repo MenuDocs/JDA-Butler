@@ -45,6 +45,8 @@ dependencies {
 	// jsoup HTML parser library @ http://jsoup.org/
 	compile 'org.jsoup:jsoup:1.10.2'
 
+	compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
 	testCompile 'junit:junit:4.12'
 }
 
