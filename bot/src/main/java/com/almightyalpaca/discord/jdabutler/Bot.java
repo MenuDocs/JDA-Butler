@@ -22,6 +22,7 @@ import com.kantenkugel.discordbot.versioncheck.items.VersionedItem;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import net.dv8tion.jda.internal.JDAImpl;
 import okhttp3.OkHttpClient;
 import org.slf4j.LoggerFactory;
@@ -29,6 +30,7 @@ import org.slf4j.LoggerFactory;
 import javax.security.auth.login.LoginException;
 import java.io.File;
 import java.io.IOException;
+import java.util.EnumSet;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -52,17 +54,17 @@ public class Bot
 
     public static Guild getGuildJda()
     {
-        return Bot.jda.getGuildById("125227483518861312");
+        return Bot.jda.getGuildById("416512197590777857");
     }
 
     public static Role getRoleBots()
     {
-        return Bot.getGuildJda().getRoleById("125616720156033024");
+        return Bot.getGuildJda().getRoleById("485347227255046144");
     }
 
     public static Role getRoleStaff()
     {
-        return Bot.getGuildJda().getRoleById("169481978268090369");
+        return Bot.getGuildJda().getRoleById("416512642904227840");
     }
 
     public static boolean isAdmin(final User user)
@@ -73,7 +75,7 @@ public class Bot
 
     public static Role getRoleHelper()
     {
-        return Bot.getGuildJda().getRoleById("183963327033114624");
+        return Bot.getGuildJda().getRoleById("416512729071747073");
     }
 
     public static boolean isHelper(final User user)
@@ -104,7 +106,8 @@ public class Bot
         Bot.listener = new EventListener();
         builder.addEventListeners(Bot.listener);
         builder.addEventListeners(Bot.dispatcher = new Dispatcher());
-        builder.addEventListeners(new FakeButlerListener());
+//        builder.addEventListeners(new FakeButlerListener());
+        builder.setDisabledCacheFlags(EnumSet.allOf(CacheFlag.class));
 
         builder.setActivity(Activity.playing("JDA"));
 
@@ -170,6 +173,7 @@ public class Bot
         {}
 
         Bot.jda.shutdownNow();
+        Bot.config.save();
         System.exit(code);
     }
 }

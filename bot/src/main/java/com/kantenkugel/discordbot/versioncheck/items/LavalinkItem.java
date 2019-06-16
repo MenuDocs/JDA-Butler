@@ -1,5 +1,6 @@
 package com.kantenkugel.discordbot.versioncheck.items;
 
+import com.almightyalpaca.discord.jdabutler.Constatnts;
 import com.kantenkugel.discordbot.versioncheck.GithubVersionSupplier;
 import com.kantenkugel.discordbot.versioncheck.RepoType;
 import net.dv8tion.jda.api.entities.User;
@@ -61,13 +62,13 @@ public class LavalinkItem extends VersionedItem
     @Override
     public long getAnnouncementRoleId()
     {
-        return 471370097747820545L;
+        return Constatnts.ROLE;
     }
 
     @Override
     public long getAnnouncementChannelId()
     {
-        return 418817098278764544L;
+        return Constatnts.CHANNEL;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.kantenkugel.discordbot.versioncheck.items;
 
 import com.almightyalpaca.discord.jdabutler.Bot;
+import com.almightyalpaca.discord.jdabutler.Constatnts;
 import com.almightyalpaca.discord.jdabutler.util.EmbedUtil;
 import com.almightyalpaca.discord.jdabutler.util.FormattingUtil;
 import com.almightyalpaca.discord.jdabutler.util.MiscUtils;
@@ -34,7 +35,7 @@ public class JDAItem extends VersionedItem implements UpdateHandler
 
     public JDAItem()
     {
-        this(JenkinsApi.JDA_JENKINS, 241948671325765632L, 125227483518861312L, "JDA");
+        this(JenkinsApi.JDA_JENKINS, Constatnts.ROLE, Constatnts.CHANNEL, "JDA");
     }
 
     public JDAItem(JenkinsApi api, long roleId, long channelId, String job)

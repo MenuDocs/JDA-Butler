@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class NotifyCommand extends Command
 {
 
-    private static final long BLACKLIST_CHANNEL_ID = 454657809397710859L;
+    private static final long BLACKLIST_CHANNEL_ID = 589870146861137920L;
     private static final String[] ALIASES = { "subscribe" };
 
     private static final TLongSet BLACKLIST = new TLongHashSet();
