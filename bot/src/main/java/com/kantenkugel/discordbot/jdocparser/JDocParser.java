@@ -161,7 +161,7 @@ public class JDocParser {
                     }
                 }
             }
-            final Element methodSummary = getSingleElementByQuery(document, "a[name=\"method.summary\"]");
+            final Element methodSummary = getSingleElementByQuery(document, "a[name=\"method.summary\"], a[id=\"method.summary\"]");
             classDoc.inheritedMethods.putAll(getInheritedMethods(methodSummary));
 
             //storing
@@ -208,7 +208,7 @@ public class JDocParser {
         if(summaryAnchor == null)
             return inherited;
         summaryAnchor = summaryAnchor.parent();
-        Elements inheritAnchors = summaryAnchor.select("a[name^=\"methods.inherited.from.class\"]");
+        Elements inheritAnchors = summaryAnchor.select("a[name^=\"methods.inherited.from.class\"], a[id^=\"methods.inherited.from.class\"]");
         for(Element inheritAnchor : inheritAnchors) {
             if(inheritAnchor.siblingElements().size() != 2)
                 continue; //no methods shown as inherited cuz everything overridden
@@ -251,7 +251,9 @@ public class JDocParser {
                         } else if(tmp.tagName().equals("div") && tmp.className().equals("deprecationBlock")) {
                             //deprecation block(jdk11)
                             Element deprecationElem = tmp.getElementsByClass("deprecationComment").first();
-                            fields.put("Deprecated:", Collections.singletonList(JDocUtil.formatText(deprecationElem.html(), baseLink)));
+                            if(deprecationElem != null) {
+                                fields.put("Deprecated:", Collections.singletonList(JDocUtil.formatText(deprecationElem.html(), baseLink)));
+                            }
                         } else if(tmp.tagName().equals("div") && tmp.className().equals("block")) {
                             //main block of content (description or deprecation (prej11))
                             Element deprecationElem = tmp.getElementsByClass("deprecationComment").first();

@@ -1,11 +1,6 @@
 package com.kantenkugel.discordbot.versioncheck;
 
-import com.almightyalpaca.discord.jdabutler.Constatnts;
-import com.kantenkugel.discordbot.jenkinsutil.JenkinsApi;
-import com.kantenkugel.discordbot.versioncheck.items.JDAItem;
-import com.kantenkugel.discordbot.versioncheck.items.LavalinkItem;
-import com.kantenkugel.discordbot.versioncheck.items.SimpleVersionedItem;
-import com.kantenkugel.discordbot.versioncheck.items.VersionedItem;
+import com.kantenkugel.discordbot.versioncheck.items.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -106,12 +101,6 @@ public class VersionCheckerRegistry
          */
         //JDA
         addItem(new JDAItem());
-        addItem(new JDAItem(
-                JenkinsApi.JDA4_JENKINS,
-                Constatnts.ROLE, // @jda-announcements
-                Constatnts.CHANNEL, // #jda_help
-                "JDA4-Beta")         // JDA4-Beta job
-        );
         //Lavaplayer
         addItem(new SimpleVersionedItem("Lavaplayer", RepoType.JCENTER, DependencyType.DEFAULT, "com.sedmelluq", "lavaplayer")
                 .setUrl("https://github.com/sedmelluq/lavaplayer#lavaplayer---audio-player-library-for-discord")
