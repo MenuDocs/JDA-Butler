@@ -48,7 +48,7 @@ public class MavenProjectCommand extends Command
         String repoString = MavenUtil.getRepositoryBlock(items, "    ");
 
         final String pom = String.format(MavenProjectCommand.POM, repoString, dependencyString);
-        reply(event, "Here: " + MiscUtils.hastebin(pom) + ".xml");
+        reply(event, "Here: " + MiscUtils.hastebin(pom));
     }
 
     @Override
