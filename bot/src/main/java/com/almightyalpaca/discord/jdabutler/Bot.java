@@ -165,7 +165,7 @@ public class Bot
 
     public static void shutdown(int code)
     {
-        Bot.jda.removeEventListener(Bot.jda.getRegisteredListeners());
+        Bot.jda.getRegisteredListeners().forEach(Bot.jda::removeEventListener);
 
         try
         {
