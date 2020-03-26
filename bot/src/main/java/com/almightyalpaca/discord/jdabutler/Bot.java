@@ -15,7 +15,6 @@ import com.almightyalpaca.discord.jdabutler.util.gradle.GradleProjectDropboxUtil
 import com.almightyalpaca.discord.jdabutler.util.logging.WebhookAppender;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-import com.kantenkugel.discordbot.fakebutler.FakeButlerListener;
 import com.kantenkugel.discordbot.jdocparser.JDoc;
 import com.kantenkugel.discordbot.versioncheck.VersionCheckerRegistry;
 import com.kantenkugel.discordbot.versioncheck.items.VersionedItem;
@@ -23,6 +22,7 @@ import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
+import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.internal.JDAImpl;
 import okhttp3.OkHttpClient;
 import org.slf4j.LoggerFactory;
@@ -39,7 +39,6 @@ import static com.almightyalpaca.discord.jdabutler.Constatnts.GUILD;
 
 public class Bot
 {
-
     public static Config config;
     public static Dispatcher dispatcher;
     public static final String INVITE_LINK = "https://discord.gg/0hMr4ce0tIk3pSjp";
@@ -103,6 +102,7 @@ public class Bot
 
         final String token = Bot.config.getString("discord.token", "Your token");
         builder.setToken(token);
+        builder.setChunkingFilter(ChunkingFilter.NONE);
 
         Bot.config.save();
         Bot.listener = new EventListener();

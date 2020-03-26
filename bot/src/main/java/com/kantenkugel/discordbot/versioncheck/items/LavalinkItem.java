@@ -24,6 +24,11 @@ public class LavalinkItem extends VersionedItem
     }
 
     @Override
+    public String getDescription() {
+        return "Updates for Lavalink-Server updates and important announcements";
+    }
+
+    @Override
     public List<String> getAliases()
     {
         return aliases;
