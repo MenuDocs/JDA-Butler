@@ -40,7 +40,7 @@ public class NotifyCommand extends Command
             return;
         }
 
-        if(content.startsWith("blacklist"))
+        /*if(content.startsWith("blacklist"))
         {
             if(Bot.isAdmin(sender))
             {
@@ -53,7 +53,7 @@ public class NotifyCommand extends Command
             }
             return;
         }
-        else if(content.equalsIgnoreCase("list"))
+        else*/ if(content.equalsIgnoreCase("list"))
         {
             EmbedBuilder embed = new EmbedBuilder();
             embed.setDescription("You can subscribe to one of the following items. To unsubscribe simply type the command again.");

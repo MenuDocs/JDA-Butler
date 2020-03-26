@@ -35,7 +35,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import static com.almightyalpaca.discord.jdabutler.Constatnts.GUILD;
+import static com.almightyalpaca.discord.jdabutler.Constatnts.*;
 
 public class Bot
 {
@@ -60,12 +60,12 @@ public class Bot
 
     public static Role getRoleBots()
     {
-        return Bot.getGuildJda().getRoleById("485347227255046144");
+        return Bot.getGuildJda().getRoleById(BOTS_ROLE);
     }
 
     public static Role getRoleStaff()
     {
-        return Bot.getGuildJda().getRoleById("416512642904227840");
+        return Bot.getGuildJda().getRoleById(STAFF_ROLE);
     }
 
     public static boolean isAdmin(final User user)
@@ -76,7 +76,7 @@ public class Bot
 
     public static Role getRoleHelper()
     {
-        return Bot.getGuildJda().getRoleById("416512729071747073");
+        return Bot.getGuildJda().getRoleById(HELPERS_ROLE);
     }
 
     public static boolean isHelper(final User user)
@@ -140,7 +140,7 @@ public class Bot
             root.addAppender(appender);
         }
 
-        NotifyCommand.reloadBlacklist(null);
+//        NotifyCommand.reloadBlacklist(null);
 
         EXECUTOR.submit(() ->
         {
