@@ -97,7 +97,7 @@ public class Bot
 
         Bot.config = ConfigFactory.getConfig(new File("config.json"));
 
-        final JDABuilder builder = new JDABuilder(AccountType.BOT);
+        final JDABuilder builder = JDABuilder.createDefault("");
         builder.setBulkDeleteSplittingEnabled(false);
 
         final String token = Bot.config.getString("discord.token", "Your token");
@@ -109,7 +109,7 @@ public class Bot
         builder.addEventListeners(Bot.listener);
         builder.addEventListeners(Bot.dispatcher = new Dispatcher());
 //        builder.addEventListeners(new FakeButlerListener());
-        builder.setDisabledCacheFlags(EnumSet.allOf(CacheFlag.class));
+        builder.disableCache(EnumSet.allOf(CacheFlag.class));
 
         builder.setActivity(Activity.playing("JDA"));
 
