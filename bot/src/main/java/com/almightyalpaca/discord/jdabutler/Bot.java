@@ -35,6 +35,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import static com.almightyalpaca.discord.jdabutler.Constatnts.GUILD;
+
 public class Bot
 {
     public static Config config;
@@ -53,7 +55,7 @@ public class Bot
 
     public static Guild getGuildJda()
     {
-        return Bot.jda.getGuildById("416512197590777857");
+        return Bot.jda.getGuildById(GUILD);
     }
 
     public static Role getRoleBots()

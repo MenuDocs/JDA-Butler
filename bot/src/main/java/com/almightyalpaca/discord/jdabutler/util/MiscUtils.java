@@ -4,12 +4,9 @@ import com.almightyalpaca.discord.jdabutler.Bot;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
-import okhttp3.MediaType;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONObject;
-import org.json.JSONTokener;
+import org.menudocs.paste.PasteClient;
+import org.menudocs.paste.PasteClientBuilder;
+import org.menudocs.paste.PasteHost;
 import org.slf4j.Logger;
 
 import java.util.concurrent.ThreadFactory;
@@ -17,7 +14,11 @@ import java.util.concurrent.TimeUnit;
 
 public class MiscUtils
 {
-    private static final String HASTEBIN_SERVER = "https://hasteb.in/"; //requires trailing slash
+    private static final PasteClient pasteClient = new PasteClientBuilder()
+            .setPasteHost(PasteHost.MENUDOCS)
+            .setDefaultExpiry("10m")
+            .setUserAgent("Mozilla/5.0 JDA-Butler")
+            .build();
 
     public static ThreadFactory newThreadFactory(String threadName)
     {
@@ -48,26 +49,9 @@ public class MiscUtils
 
     public static String hastebin(final String text)
     {
-        try(Response response = Bot.httpClient.newCall(
-                new Request.Builder()
-                        .post(RequestBody.create(MediaType.parse("text/plain"), text))
-                        .url(HASTEBIN_SERVER + "documents")
-                        .header("User-Agent", "Mozilla/5.0 JDA-Butler")
-                        .build()
-        ).execute())
-        {
-            if(!response.isSuccessful())
-                return null;
+        final String pasteId = pasteClient.createPaste("xml", text).execute();
 
-            JSONObject obj = new JSONObject(new JSONTokener(response.body().charStream()));
-            return HASTEBIN_SERVER + obj.getString("key");
-        }
-
-        catch (final Exception e)
-        {
-            Bot.LOG.warn("Error posting text to hastebin", e);
-            return null;
-        }
+        return "https://paste.menudocs.org/paste/" + pasteId;
     }
 
     public static void announce(TextChannel channel, Role role, Message message, boolean slowmode)

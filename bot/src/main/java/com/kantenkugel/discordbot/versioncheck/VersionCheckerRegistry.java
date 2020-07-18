@@ -142,5 +142,10 @@ public class VersionCheckerRegistry
                 .setUrl("https://github.com/MinnDevelopment/java-discord-rpc")
                 .setAliases("rpc")
         );
+        // BotCommons
+        addItem(new SimpleVersionedItem("BotCommons", RepoType.JCENTER, DependencyType.DEFAULT, "me.duncte123", "botCommons")
+                .setUrl("https://github.com/duncte123/botCommons")
+                .setAliases("bc", "botcommons", "commons")
+        );
     }
 }
