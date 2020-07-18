@@ -1,6 +1,5 @@
 package com.kantenkugel.discordbot.versioncheck;
 
-import com.kantenkugel.discordbot.jenkinsutil.JenkinsApi;
 import com.kantenkugel.discordbot.versioncheck.items.*;
 
 import java.util.*;
