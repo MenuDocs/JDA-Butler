@@ -116,7 +116,7 @@ public class Bot
         builder.addEventListeners(Bot.listener);
         builder.addEventListeners(Bot.dispatcher = new Dispatcher());
 //        builder.addEventListeners(new FakeButlerListener());
-        builder.setDisabledCacheFlags(EnumSet.allOf(CacheFlag.class));
+        builder.disableCache(EnumSet.allOf(CacheFlag.class));
 
         builder.setActivity(Activity.playing("JDA"));
 
