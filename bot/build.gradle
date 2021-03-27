@@ -59,7 +59,7 @@ dependencies {
     // Remark for html -> markdown (docs)
     implementation "com.kotcrab.remark:remark:1.0.0"
 
-    implementation 'org.menudocs:paste-client-java:1.0.13'
+    implementation 'org.menudocs:paste-client-java:1.1.1'
 
     testImplementation 'junit:junit:4.12'
 }
