@@ -6,7 +6,7 @@ mainClassName = 'com.almightyalpaca.discord.jdabutler.Bot'
 
 repositories {
     maven {
-        url  "https://dl.bintray.com/duncte123/maven"
+        url  "https://duncte123.jfrog.io/artifactory/bintray-maven"
     }
 
     maven {

@@ -136,7 +136,7 @@ public class VersionCheckerRegistry
                 .setAliases("rpc")
         );
         // BotCommons
-        addItem(new SimpleVersionedItem("BotCommons", RepoType.JCENTER, DependencyType.DEFAULT, "me.duncte123", "botCommons")
+        addItem(new SimpleVersionedItem("BotCommons", RepoType.DUNCTE123, DependencyType.DEFAULT, "me.duncte123", "botCommons")
                 .setUrl("https://github.com/duncte123/botCommons")
                 .setAliases("bc", "botcommons", "commons")
         );
