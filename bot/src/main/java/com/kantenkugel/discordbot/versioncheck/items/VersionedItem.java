@@ -10,10 +10,7 @@ import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Supplier;
 
 public abstract class VersionedItem
@@ -72,7 +69,13 @@ public abstract class VersionedItem
      * @return Set of all relevant Repositories
      */
     public final Set<RepoType> getAllRepositories() {
-        EnumSet<RepoType> repoTypes = EnumSet.copyOf(getAdditionalRepositories());
+        final Set<RepoType> additionalRepositories = getAdditionalRepositories();
+
+        if (additionalRepositories.isEmpty()) {
+            return EnumSet.of(getRepoType());
+        }
+
+        EnumSet<RepoType> repoTypes = EnumSet.copyOf(additionalRepositories);
         if(getRepoType() != null) {
             repoTypes.add(getRepoType());
         }

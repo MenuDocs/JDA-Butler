@@ -40,3 +40,7 @@ jobs:
                   registry: docker.pkg.github.com
                   repository: menudocs/jda-butler/butler
                   tags: latest
+            - name: Trigger webhook
+              uses: zzzze/webhook-trigger@v1.0.0
+              with:
+                  webhook_url: ${{ secrets.WEBHOOK_URL }}
