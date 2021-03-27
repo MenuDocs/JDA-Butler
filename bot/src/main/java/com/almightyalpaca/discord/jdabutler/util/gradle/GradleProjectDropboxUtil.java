@@ -105,7 +105,7 @@ public class GradleProjectDropboxUtil
         createZip();
         init();
 
-        if (client == null || Bot.config.getBoolean("testing", true))
+        if (client == null || Bot.config.testing())
         {
             Bot.LOG.info("Skipping upload!");
             return;
@@ -158,7 +158,7 @@ public class GradleProjectDropboxUtil
     {
         if (!initialized.getAndSet(true))
         {
-            final String ACCESS_TOKEN = Bot.config.getString("dropbox.access_token", "");
+            final String ACCESS_TOKEN = Bot.config.dropboxAccessToken();
             if(ACCESS_TOKEN.isEmpty())
                 return;
 
