@@ -69,13 +69,7 @@ public abstract class VersionedItem
      * @return Set of all relevant Repositories
      */
     public final Set<RepoType> getAllRepositories() {
-        final Set<RepoType> additionalRepositories = getAdditionalRepositories();
-
-        if (additionalRepositories.isEmpty()) {
-            return EnumSet.of(getRepoType());
-        }
-
-        EnumSet<RepoType> repoTypes = EnumSet.copyOf(additionalRepositories);
+        final Set<RepoType> repoTypes = new HashSet<>(getAdditionalRepositories());
         if(getRepoType() != null) {
             repoTypes.add(getRepoType());
         }
