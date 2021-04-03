@@ -69,7 +69,7 @@ public abstract class VersionedItem
      * @return Set of all relevant Repositories
      */
     public final Set<RepoType> getAllRepositories() {
-        final Set<RepoType> repoTypes = new HashSet<>(getAdditionalRepositories());
+        Set<RepoType> repoTypes = new HashSet<>(getAdditionalRepositories());
         if(getRepoType() != null) {
             repoTypes.add(getRepoType());
         }
