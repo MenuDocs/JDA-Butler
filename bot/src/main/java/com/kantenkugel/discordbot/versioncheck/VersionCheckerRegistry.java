@@ -131,10 +131,10 @@ public class VersionCheckerRegistry
             OTHERS
          */
         //RPC
-        addItem(new SimpleVersionedItem("java-discord-rpc", RepoType.JCENTER, DependencyType.DEFAULT, "club.minnced", "java-discord-rpc")
+        /*addItem(new SimpleVersionedItem("java-discord-rpc", RepoType.JCENTER, DependencyType.DEFAULT, "club.minnced", "java-discord-rpc")
                 .setUrl("https://github.com/MinnDevelopment/java-discord-rpc")
                 .setAliases("rpc")
-        );
+        );*/
         // BotCommons
         addItem(new SimpleVersionedItem("BotCommons", RepoType.DUNCTE123, DependencyType.DEFAULT, "me.duncte123", "botCommons")
                 .setUrl("https://github.com/duncte123/botCommons")
