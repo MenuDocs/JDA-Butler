@@ -4,7 +4,6 @@ WORKDIR /butler
 
 COPY gradle ./gradle
 COPY gradlew build.gradle settings.gradle ./
-RUN chmod +x ./gradlew
 RUN ./gradlew --no-daemon dependencies
 COPY . .
 RUN ./gradlew --no-daemon :bot:build
